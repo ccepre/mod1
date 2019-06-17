@@ -1,0 +1,10 @@
+pygame 1.9.6
+Hello from the pygame community. https://www.pygame.org/contribute.html
+ok
+[[166 166 200]
+ [333 166   3]
+ [333 333 133]]
+[[166 166 200   1]
+ [333 166   3   1]
+ [333 333 133   1]]
+[166 166 200   1]
