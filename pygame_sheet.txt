@@ -1,0 +1,50 @@
+import pygame
+from pygame.locals import *
+
+# Initialization
+pygame.init()
+# autoriser repeat de key
+pygame.key.set_repeat(400, 30)
+# Fenetre
+fenetre = pygame.display.set_mode((width, height))
+# charger + convertir image (convert_alpha() pour les images avec transparence)
+fond = pygame.image.load(<path_image>).convert()
+# Coller l'image
+fenetre.blit(fond, (0,0))
+# mettre a jour le display
+pygame.display.flip()
+
+
+continuer = 1
+while continuer :
+	for event in pygame.event.get():   #On parcours la liste de tous les événements reçus
+		if event.type == QUIT:     #Si un de ces événements est de type QUIT
+			continuer = 0      #On arrête la boucle
+	if continuer :
+		continue
+
+
+
+evenements :
+KEYDOWN
+--> event.key == K_a .. K_z etc.
+QUIT
+MOUSEBUTTONDOWN
+MOUSEBUTTONUP
+--> envent.button --> 1-5
+--> event.pos --> (abs, ord)
+MOUSEMOTION
+--> event.pos
+--> event.rel --> deplacement relatif (x, y)
+--> event.buttons --> buttons actionner pdt le deplacement = (gauche, milieu, droit) -> val = 0/1
+
+rect : 
+# recuperer la position d'une image
+position_perso = perso.get_rect() 
+# move rect
+position_perso = position_perso.move(0,3)
+
+
+linear transformation :
+T(a + b) = T(a) + T(b) avec a et b 2 vecteurs
+T(c*a) = c * T(a) avec a vecteur et c un reel
