@@ -6,7 +6,9 @@ import numpy as np
 import sys
 import re
 import field
+import viewer
 
+np.set_printoptions(threshold=sys.maxsize)
 def parser():
     lines = sys.stdin.read()
     parentheses = re.findall('\((.*?)\)', lines)
@@ -17,8 +19,12 @@ def parser():
 
 if __name__ == "__main__" :
     needed_points = parser()
-    map = field.Field(needed_points)
+    map = field.Field(needed_points, 50)
     map.resize()
     map.place_needed_points()
     map.gen_all_points()
-    print(map.map_dots)
+    map.transform_all()
+   # print(map.map_proj)
+    viewer = viewer.Viewer(1000, 1000, map)
+    viewer.initialization()
+    viewer.run()
